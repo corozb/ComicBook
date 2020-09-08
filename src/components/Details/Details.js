@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom'
 
 import { getDetails } from '../../utils/getUrls'
 import ErrorBoundary from '../../utils/ErrorBoundary'
+import Template from './Template'
 
 const Details = () => {
 	const history = useHistory()
@@ -25,22 +26,6 @@ const Details = () => {
 		getComic(id)
 	}, [id])
 
-	const Template = (array, section) => (
-		<div>
-			<h3>{section}</h3>
-			<hr />
-			<ul>
-				{array.map((item, index) => {
-					return (
-						<li key={index}>
-							<h4>{item.name}</h4>
-						</li>
-					)
-				})}
-			</ul>
-		</div>
-	)
-
 	if (loading) {
 		return <h2>Loading...</h2>
 	}
@@ -50,10 +35,10 @@ const Details = () => {
 			{comic.length !== 0 ? (
 				<div>
 					<img src={comic.image.original_url} alt=''></img>
-					{Template(comic.character_credits, 'Characters')}
-					{Template(comic.team_credits, 'Team')}
-					{Template(comic.location_credits, 'Locations')}
-					{Template(comic.concept_credits, 'Concepts')}
+					<Template array={comic.character_credits} section='Characters' />
+					<Template array={comic.team_credits} section='Team' />
+					<Template array={comic.location_credits} section='Locations' />
+					<Template array={comic.concept_credits} section='Concepts' />
 				</div>
 			) : (
 				<ErrorBoundary />
