@@ -1,30 +1,39 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 import { getDetails } from '../../utils/getUrls'
+import ErrorBoundary from '../../utils/ErrorBoundary'
 
 const Details = () => {
+	const history = useHistory()
 	const [comic, setComic] = useState([])
+	const [loading, setLoading] = useState(true)
 	let { id } = useParams()
 
 	const getComic = async (id) => {
-		const data = await getDetails(id)
-		setComic(data.results)
+		try {
+			const data = await getDetails(id)
+			setComic(data.results)
+			setLoading(false)
+		} catch (err) {
+			alert(err)
+			history.push('/')
+		}
 	}
 
 	useEffect(() => {
 		getComic(id)
 	}, [id])
 
-	const setDetail = (items, name) => (
+	const Template = (array, section) => (
 		<div>
-			<h3>{name}</h3>
+			<h3>{section}</h3>
 			<hr />
 			<ul>
-				{items.map((char, idx) => {
+				{array.map((item, index) => {
 					return (
-						<li key={idx}>
-							<h4>{char.name}</h4>
+						<li key={index}>
+							<h4>{item.name}</h4>
 						</li>
 					)
 				})}
@@ -32,18 +41,23 @@ const Details = () => {
 		</div>
 	)
 
+	if (loading) {
+		return <h2>Loading...</h2>
+	}
+
 	return (
 		<>
-			<h2>Character</h2>
 			{comic.length !== 0 ? (
 				<div>
 					<img src={comic.image.original_url} alt=''></img>
-					{setDetail(comic.character_credits, 'Characters')}
-					{setDetail(comic.team_credits, 'Team')}
-					{setDetail(comic.location_credits, 'Locations')}
-					{setDetail(comic.concept_credits, 'Concepts')}
+					{Template(comic.character_credits, 'Characters')}
+					{Template(comic.team_credits, 'Team')}
+					{Template(comic.location_credits, 'Locations')}
+					{Template(comic.concept_credits, 'Concepts')}
 				</div>
-			) : null}
+			) : (
+				<ErrorBoundary />
+			)}
 		</>
 	)
 }
