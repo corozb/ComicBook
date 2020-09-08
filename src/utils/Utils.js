@@ -7,4 +7,7 @@ const Format = (data) => {
 	return date
 }
 
-export { Format }
+const sortByMostRecent = (array) =>
+	array.sort((a, b) => new Date(b.date_added) - new Date(a.date_added))
+
+export { Format, sortByMostRecent }
