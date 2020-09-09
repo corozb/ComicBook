@@ -9,7 +9,7 @@
 > 1. npm install <br>
 > 2. npm start
 
-Click [here]('https://comic-book-corozb.netlify.app/') to see the DEMO
+#### Click [here](https://comic-book-corozb.netlify.app/) to see the DEMO
 
 ### Comic Book Application
 
