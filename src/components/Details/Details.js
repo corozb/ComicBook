@@ -37,8 +37,6 @@ const Details = () => {
 		)
 	}
 
-	console.log('comic', comic.team_credits)
-
 	return (
 		<>
 			{comic.length !== 0 ? (

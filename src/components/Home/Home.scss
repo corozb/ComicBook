@@ -58,8 +58,6 @@
 
 	&__description {
 		padding: 0 8px;
-		// float: left;
-		// width: 70%;
 		h3 {
 			color: #404040;
 			padding-bottom: 5px;
@@ -100,13 +98,16 @@
 .spinner {
 	text-align: center;
 	padding-top: 40vh;
-	// transition: 1s;
 
 	&__icon {
 		font-size: 7rem;
-		// transform: rotate(360deg) translateZ(0);
 		animation: spin 1s linear infinite;
 	}
+}
+
+.errorMessage {
+	padding-top: 40vh;
+	text-align: center;
 }
 
 @keyframes spin {

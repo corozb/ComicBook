@@ -1,70 +1,81 @@
-# ComicBook
+> This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+>
+> If you want to clone this repo, open a console and run this into a folder **(Use a password protected SSH key)**
+>
+> ### `git clone git@github.com:corozb/ComicBook.git`
+>
+> <br>
+> In the project directory, you can run: <br>
+> 1. npm install <br>
+> 2. npm start
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> ### Click [here]('https://comic-book-corozb.netlify.app/') to see the DEMO
 
-## Available Scripts
+# Comic Book Application
 
-In the project directory, you can run:
+This technical test consists of developing a web application that consumes the restful API of Comic Vine which is the largest comic database online.
 
-### `npm start`
+You should build a web application the following requirements:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Show a list of the last comics
+- Show a detail of the selected comic
+- Markup the UI accordingly to the wireframe presented
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### API Docs
 
-### `npm test`
+- https://josephephillips.com/blog/how-to-use-comic-vine-api-part1
+- https://comicvine.gamespot.com/api/documentation
+- The Comic Vine Base URL API is http://comicvine.gamespot.com/api
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You must signup in order to get an API Key for consuming the API
 
-### `npm run build`
+- https://comicvine.gamespot.com/api/ -> Here you can find your API Key after you have signed up
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+List of comics
+https://comicvine.gamespot.com/api/issues/?api_key=YOUR_API_KEY&format=json
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+For each comic you should grabs the next data from the response:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- The comic’s image is: image.original_url
+- The date is: date_added
+- The name is: name + issue_number
 
-### `npm run eject`
+### Grid Mode
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![](https://i.ibb.co/Zm0wFRr/grid.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### List Mode
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![](https://i.ibb.co/zRrqxpq/list.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Issue Detail
 
-## Learn More
+The base url comes from the property api_detail_url obtained in the previous response for each comic.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You must concatenate api_detail_url + ?api_key=xxx&fromat=json
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://comicvine.gamespot.com/api/issue/4000-6/?api_key=YOUR_API_KEY&format=json
 
-### Code Splitting
+For comic detail you should grabs the next data from the response:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- The comic’s image is: image.original_url
+- character_credits
+- team_credits
+- location_credits
 
-### Analyzing the Bundle Size
+![](https://i.ibb.co/SXxsybC/details.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Goals
 
-### Making a Progressive Web App
+- Code easy to read and to understand
+- All code should be written in english
+- Upload the code to a public git repo
+- Make sure to develop a good components decomposition following - the SOLID principles for each component
+- Implements a responsive design making sure it looks good for mobile and tablet devices
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Optionals
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Show loading indicators
+- Show error states (for example when there is no internet connection)
+- Develop unit tests for the components
+- Implements a filter by publisher feature for the list of comics accordingly to the API Documentation - The primary publisher a character is attached to.

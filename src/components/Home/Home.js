@@ -80,7 +80,7 @@ const List = () => {
 					</div>
 				</>
 			) : (
-				<h2>{messageError}</h2>
+				<h2 className='errorMessage'>{messageError}</h2>
 			)}
 		</>
 	)
