@@ -1,0 +1,16 @@
+$fontTitle: 'Anton', sans-serif;
+
+header {
+	position: fixed;
+	z-index: 2;
+	width: 100%;
+
+	h1 {
+		text-align: center;
+		background: #fff;
+		height: 80px;
+		padding-top: 14px;
+		font-size: 30px;
+		font-family: $fontTitle;
+	}
+}

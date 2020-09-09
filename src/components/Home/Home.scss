@@ -1,0 +1,161 @@
+$black: #444444;
+$black5: lighten($black, 50%);
+$black7: lighten($black, 70%);
+$black0: lighten($black, 100%);
+$green: #017c37;
+$activedColor: lighten($green, 10%);
+
+$pad: 25px;
+
+$mamabear: 800px;
+$babybear: 650px;
+
+.navbar-space {
+	padding-top: 100px;
+}
+
+.navbar {
+	max-width: 880px;
+	width: 90%;
+	margin: 0 auto;
+	border-top: 1px solid #bfbfbf;
+	border-bottom: 1px solid #bfbfbf;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 0;
+
+	&__icons {
+		display: flex;
+		align-items: center;
+		color: #017c37;
+		cursor: pointer;
+		padding-left: 10px;
+	}
+
+	&__name {
+		padding-left: 5px;
+	}
+}
+
+.active {
+	color: $activedColor;
+}
+
+.wrap {
+	position: relative;
+	width: 90%;
+	max-width: 900px;
+	min-height: 100%;
+	margin: 40px auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.card {
+	padding: 1%;
+	margin-bottom: 10px;
+	text-align: center;
+	float: left;
+	width: 100%;
+	margin: 25px 0 0;
+	transition: all ease 0.4s;
+
+	img {
+		border: 2px solid #000;
+		margin-bottom: 20px;
+	}
+}
+
+.grid {
+	position: relative;
+	width: 25%;
+	padding-bottom: $pad;
+
+	img {
+		float: left;
+		width: 100%;
+	}
+}
+
+.list {
+	float: left;
+	overflow: hidden;
+	border-bottom: 1px solid $black5;
+	width: 100%;
+	padding-bottom: $pad;
+
+	.lead {
+		float: left;
+		width: 70%;
+	}
+	img {
+		max-width: 30%;
+		float: left;
+	}
+}
+
+@media screen and (max-width: 950px) {
+	.lead {
+		width: 100%;
+	}
+	img {
+		max-width: 100%;
+	}
+	.grid {
+		width: 33%;
+	}
+}
+
+@media screen and (max-width: $mamabear) {
+	.lead {
+		width: 100%;
+	}
+	img {
+		max-width: 100%;
+	}
+	.grid {
+		width: 50%;
+	}
+
+	.list {
+		position: relative;
+		width: 50%;
+		border-bottom: none;
+
+		.lead {
+			width: 100%;
+		}
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	.show {
+		display: none;
+	}
+}
+
+@media screen and (max-width: $babybear) {
+	.lead {
+		width: 100%;
+	}
+	img {
+		max-width: 100%;
+	}
+
+	.grid {
+		width: 100%;
+		border-bottom: 1px solid $black5;
+	}
+
+	.list {
+		width: 100%;
+		border-bottom: 1px solid $black5;
+
+		img {
+			width: 100%;
+		}
+	}
+}
