@@ -9,9 +9,9 @@
 > 1. npm install <br>
 > 2. npm start
 
-> ### Click [here]('https://comic-book-corozb.netlify.app/') to see the DEMO
+Click [here]('https://comic-book-corozb.netlify.app/') to see the DEMO
 
-# Comic Book Application
+### Comic Book Application
 
 This technical test consists of developing a web application that consumes the restful API of Comic Vine which is the largest comic database online.
 
