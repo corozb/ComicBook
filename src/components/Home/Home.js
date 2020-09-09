@@ -63,7 +63,7 @@ const List = () => {
 								className={active ? 'card grid' : 'card list'}>
 								<Link to={`/details/4000-${comic.id}`}>
 									<img src={comic.image.original_url} alt=''></img>
-									<div className='lead'>
+									<div className='card__description'>
 										<h3>
 											{comic.name ? comic.name : comic.volume.name} #
 											{comic.issue_number}

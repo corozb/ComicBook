@@ -1,5 +1,6 @@
-const API_URL = process.env.REACT_APP_API_URL
-const API_KEY = process.env.REACT_APP_API_KEY
+const API_URL =
+	'https://cors-anywhere.herokuapp.com/https://comicvine.gamespot.com/api'
+const API_KEY = '3c7e0ea165c47c2a7eb67a2c576963e5c1f88c00'
 
 const getComics = async () => {
 	const response = await fetch(
