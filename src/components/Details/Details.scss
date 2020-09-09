@@ -1,0 +1,46 @@
+@import '../../variables';
+
+.details {
+	height: 100vh;
+	max-width: 880px;
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+
+	padding-top: 80px;
+
+	&__image {
+		img {
+			width: 110%;
+		}
+	}
+
+	&__info {
+		width: 50%;
+	}
+}
+
+.errorBoundary {
+	padding-top: 20vh;
+	text-align: center;
+
+	.seconds {
+		color: $green;
+	}
+}
+
+@include tablet {
+	.details {
+		flex-direction: column;
+
+		&__image {
+			order: 1;
+		}
+
+		&__info {
+			width: 100%;
+			order: 2;
+		}
+	}
+}

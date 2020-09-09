@@ -16,11 +16,13 @@ const ErrorBoundary = () => {
 	return (
 		<>
 			{redirect ? <Redirect to='/' noThrow /> : null}
-			<h2>
-				There was an error with this page. <Link to='/'>Click Here</Link> to go
-				back home page or wait <strong className='seconds'>{seconds}</strong>{' '}
-				seconds.
-			</h2>
+			<div className='errorBoundary'>
+				<h2>
+					There was an error with this page. <Link to='/'>Click Here</Link> to
+					go back home page or wait{' '}
+					<strong className='seconds'>{seconds}</strong> seconds.
+				</h2>
+			</div>
 		</>
 	)
 }

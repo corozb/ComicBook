@@ -1,0 +1,23 @@
+$black: #404040;
+$green: #017c37;
+$activedColor: lighten($green, 10%);
+
+$border: 1px solid #bfbfbf;
+
+@mixin desktop {
+	@media screen and (max-width: 950px) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media screen and (max-width: 800px) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media screen and (max-width: 640px) {
+		@content;
+	}
+}

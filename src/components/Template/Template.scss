@@ -1,0 +1,42 @@
+@import '../../variables';
+
+.template {
+	&__details {
+		h3 {
+			padding: 20px 0 10px 0;
+			border-bottom: $border;
+			margin-bottom: 10px 0;
+			font-size: calc(16px + 6 * ((100vw - 320px) / 960));
+		}
+	}
+
+	&__items {
+		ul {
+			list-style: none;
+			display: flex;
+			flex-wrap: wrap;
+			padding-left: 10px;
+		}
+
+		li {
+			width: 50%;
+			padding: 10px;
+			color: $green;
+
+			h4 {
+				font-weight: lighter;
+			}
+
+			&:hover {
+				color: $activedColor;
+				cursor: pointer;
+			}
+		}
+	}
+
+	&__space {
+		height: 40px;
+		padding: 10px;
+		color: $green;
+	}
+}

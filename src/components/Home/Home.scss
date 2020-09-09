@@ -1,13 +1,4 @@
-$black: #404040;
-$green: #017c37;
-$activedColor: lighten($green, 10%);
-
-$border: 1px solid #bfbfbf;
-
-$pad: 25px;
-
-$mamabear: 800px;
-$babybear: 650px;
+@import '../../variables';
 
 .navbar-space {
 	padding-top: 100px;
@@ -85,7 +76,7 @@ $babybear: 650px;
 .grid {
 	position: relative;
 	width: 25%;
-	padding-bottom: $pad;
+	padding-bottom: 25px;
 
 	img {
 		float: left;
@@ -98,7 +89,7 @@ $babybear: 650px;
 	overflow: hidden;
 	border-bottom: $border;
 	width: 100%;
-	padding-bottom: $pad;
+	padding-bottom: 25px;
 
 	img {
 		max-width: 30%;
@@ -106,7 +97,25 @@ $babybear: 650px;
 	}
 }
 
-@media screen and (max-width: 950px) {
+.spinner {
+	text-align: center;
+	padding-top: 40vh;
+	// transition: 1s;
+
+	&__icon {
+		font-size: 7rem;
+		// transform: rotate(360deg) translateZ(0);
+		animation: spin 1s linear infinite;
+	}
+}
+
+@keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@include desktop() {
 	.lead {
 		width: 100%;
 	}
@@ -118,7 +127,7 @@ $babybear: 650px;
 	}
 }
 
-@media screen and (max-width: $mamabear) {
+@include tablet() {
 	.lead {
 		width: 100%;
 	}
@@ -148,7 +157,7 @@ $babybear: 650px;
 	}
 }
 
-@media screen and (max-width: $babybear) {
+@include mobile {
 	.lead {
 		width: 100%;
 	}

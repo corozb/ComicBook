@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTh, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faTh, faBars, faCompactDisc } from '@fortawesome/free-solid-svg-icons'
 
 import { Format, sortByMostRecent } from '../../utils/Utils'
 import { getComics } from '../../utils/getUrls'
@@ -31,7 +31,11 @@ const List = () => {
 	}, [])
 
 	if (loading) {
-		return <h2>Loading...</h2>
+		return (
+			<div className='spinner'>
+				<FontAwesomeIcon icon={faCompactDisc} className='spinner__icon' />
+			</div>
+		)
 	}
 
 	return (
